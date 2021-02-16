@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.0
   responsive_builder: 0.3.0
+  device_info: ^1.0.0
   flutter_svg:
 
 dev_dependencies:

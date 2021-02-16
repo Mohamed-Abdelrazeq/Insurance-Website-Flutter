@@ -1,13 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 extension HoverExtensions on Widget {
 
+
   Widget get moveUpOnHover {
-    return TranslateOnHover(
-      child: this,
+    return ResponsiveBuilder(
+      builder: (context, sizingInformation) {
+        // Check the sizing information here and return your UI
+        if (sizingInformation.deviceScreenType == DeviceScreenType.desktop) {
+          return TranslateOnHover(
+            child: this,
+          );
+        }
+        if (sizingInformation.deviceScreenType == DeviceScreenType.tablet) {
+          return TranslateOnHover(
+            child: this,
+          );
+        }
+        if (sizingInformation.deviceScreenType == DeviceScreenType.mobile) {
+          return this;
+        }
+        return this;
+
+
+      },
     );
   }
+
+
 }
+
+
 
 class TranslateOnHover extends StatefulWidget {
   final Widget child;
